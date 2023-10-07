@@ -8,6 +8,7 @@ const total = document.getElementById("total");
 const aniadir = (event) => {
 
     let element = event.target;
+    let precioTotal = Math.floor(Math.random() * 99);
     if(nuevoalimento.value === ""){
 
         error.textContent = "NO HAS INTRODUCIDO UN ALIMENTO";
@@ -25,8 +26,10 @@ const aniadir = (event) => {
 
         let price = document.createElement("SPAN");
         price.className = "listitem__price";
-        price.textContent = Math.floor(Math.random() * 99) + ".00€"
+        price.textContent = precioTotal + ".00€";
         li.appendChild(price); 
+        total.textContent = precioTotal ;
+        
 
         let add = document.createElement("BUTTON");
         add.className = "listbtn__add";
@@ -60,6 +63,10 @@ const aniadir = (event) => {
                     num--;
                     amount.textContent = num;
                 }
+            }
+            if(element.textContent === "X"){
+                li.remove();
+                
             }
         })
     }
