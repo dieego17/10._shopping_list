@@ -40,6 +40,8 @@ const aniadir = (event) => {
 
         let amount = document.createElement("SPAN");
         amount.className = "listitem__amount";
+        let num = 1;
+        amount.textContent = num
         li.appendChild(amount);
 
         let borrar = document.createElement("BUTTON");
@@ -47,12 +49,20 @@ const aniadir = (event) => {
         borrar.textContent = "X"
         li.appendChild(borrar);
 
-        
+        list.addEventListener("click", (event) =>{
 
-
+            let element = event.target;
+            if(element.textContent === "+"){
+                num++;
+                amount.textContent = num;
+            }else if(element.textContent === "-"){
+                if(num > 1){
+                    num--;
+                    amount.textContent = num;
+                }
+            }
+        })
     }
-
-
 }
 
 btnaniadir.addEventListener("click", aniadir);
