@@ -58,10 +58,7 @@ const aniadir = (event) => {
 btnaniadir.addEventListener("click", aniadir);
 nuevoalimento.focus();
 
-const buy = (event) =>{
 
-
-
-}
-
-btncomprar.addEventListener("click", buy)
+btncomprar.addEventListener("click", (event) => {
+    location.reload();
+});
