@@ -55,9 +55,12 @@ const aniadir = (event) => {
         list.addEventListener("click", (event) =>{
 
             let element = event.target;
+            let suma;
             if(element.textContent === "+"){
                 num++;
                 amount.textContent = num;
+
+                total.textContent = price.textContent;
             }else if(element.textContent === "-"){
                 if(num > 1){
                     num--;
@@ -65,8 +68,9 @@ const aniadir = (event) => {
                 }
             }
             if(element.textContent === "X"){
-                li.remove();
-                
+                li.remove()
+                total.textContent = "0";
+
             }
         })
     }
