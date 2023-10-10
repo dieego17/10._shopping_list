@@ -14,7 +14,7 @@ const aniadir = (event) => {
         error.textContent = "NO HAS INTRODUCIDO UN ALIMENTO";
 
     }else{
-
+       
         let li = document.createElement("LI");
         li.className = "listitem";
         list.appendChild(li);
@@ -23,12 +23,13 @@ const aniadir = (event) => {
         nombre.className = "listitem__name";
         nombre.textContent = nuevoalimento.value;
         li.appendChild(nombre);
+        
 
         let price = document.createElement("SPAN");
         price.className = "listitem__price";
         price.textContent = precioTotal + ".00€";
         li.appendChild(price); 
-        total.textContent = precioTotal ;
+        total.textContent = precioTotal ; 
         
 
         let add = document.createElement("BUTTON");
@@ -51,6 +52,10 @@ const aniadir = (event) => {
         borrar.className = "listbtn__delete";
         borrar.textContent = "X"
         li.appendChild(borrar);
+        nuevoalimento.focus();
+
+        //Al pulsar el boton anñadir alimento, se borra el producto introducido
+        nuevoalimento.value = "";
 
         list.addEventListener("click", (event) =>{
 
@@ -59,8 +64,7 @@ const aniadir = (event) => {
             if(element.textContent === "+"){
                 num++;
                 amount.textContent = num;
-
-                total.textContent = price.textContent;
+                
             }else if(element.textContent === "-"){
                 if(num > 1){
                     num--;
